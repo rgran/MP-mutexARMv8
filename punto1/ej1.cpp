@@ -23,7 +23,7 @@ int funcion(int th){
         long long mi_suma = 0;
 	while (indice_trabajo < n_elementos){
 
-		//mutex_biblioteca1.lock();
+		mutex_biblioteca1.lock();
 		
 		int mi_indice_trabajo_ini = indice_trabajo; // fetch?
 
@@ -31,16 +31,15 @@ int funcion(int th){
 		
 		int mi_indice_trabajo_fin = indice_trabajo;
 		
-		//mutex_biblioteca1.unlock();
+		mutex_biblioteca1.unlock();
 
 		
 		for (int i = mi_indice_trabajo_ini; i < mi_indice_trabajo_fin; i++){
-
 			mi_suma = mi_suma + v_elems[i];
 		}
 
-		cout << "Soy el thread: " << th << " acabo de realizar el trozo: " << mi_indice_trabajo_ini ;
-		cout << " - " << mi_indice_trabajo_fin << endl; 
+		//cout << "Soy el thread: " << th << " acabo de realizar el trozo: " << mi_indice_trabajo_ini ;
+		//cout << " - " << mi_indice_trabajo_fin << endl; 
 	}
 
 	mutex_biblioteca2.lock();
@@ -64,7 +63,7 @@ int main(){
 	}
 	
 	cout << "El valor de la componente 200000 es: " << v_elems[200000] << endl;
-	cout << "El resultado de la operación sumatorio es : " << to_string(sumatorio) << endl;
+	cout << "El resultado de la operación sumatorio secuencial es : " << to_string(sumatorio) << endl;
 
 
 	for (int i = 0; i < n_threads; i++){

@@ -55,6 +55,8 @@ int funcion(int th){
 	sumatorio_concurrente = sumatorio_concurrente + mi_suma;
 	mi_mutex_unlock(&mi_mutex2);
 
+	return 0;
+
 }
 
 int main(){
